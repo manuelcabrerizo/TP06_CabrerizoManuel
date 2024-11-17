@@ -15,7 +15,7 @@ public class EnemyOnHit : MonoBehaviour
     {
         if (Utils.CheckCollisionLayer(collision.gameObject, layer))
         {
-            _enemyController.ApplyDamage(1, collision.gameObject.transform.position);
+            _enemyController.ApplyDamage(PlayerController.Instance.AttackPower, collision.gameObject.transform.position);
         }
     }
 }

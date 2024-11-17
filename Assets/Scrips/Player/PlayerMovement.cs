@@ -1,6 +1,7 @@
 using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerData PlayerData;
     [SerializeField] private SfxClipsData SfxClipsData;
 
     private Rigidbody2D _rigidbody2D;
@@ -37,11 +38,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        float speed = 50.0f;   
         Moving = false;
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(PlayerData.MoveRightKey))
         {
-            _rigidbody2D.AddForce(Vector2.right * (speed * Time.deltaTime), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.right * (PlayerData.Speed * Time.deltaTime), ForceMode2D.Impulse);
             if (!_playerAttack.Attack)
             {
                 _spriteRenderer.flipX = false;
@@ -49,19 +49,19 @@ public class PlayerMovement : MonoBehaviour
             Moving = true;
 
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(PlayerData.MoveLeftKey))
         {
-            _rigidbody2D.AddForce(Vector2.left * (speed * Time.deltaTime), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.left * (PlayerData.Speed * Time.deltaTime), ForceMode2D.Impulse);
             if (!_playerAttack.Attack)
             {
                 _spriteRenderer.flipX = true;
             }
             Moving = true;
         }
-        if (Grounded && Input.GetKeyDown(KeyCode.Space))
+        if (Grounded && Input.GetKeyDown(PlayerData.JumpKey))
         {
             AudioManager.Instance.PlayClip(SfxClipsData.JumpClip, AudioSourceType.SFX);
-            _rigidbody2D.AddForce(Vector2.up * 50.0f, ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(Vector2.up * PlayerData.JumpImpulse, ForceMode2D.Impulse);
         }
 
         ProcessGrounded();

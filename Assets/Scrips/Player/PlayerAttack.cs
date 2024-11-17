@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private PlayerData PlayerData;
+
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
     private Transform _spriteTransform;
@@ -14,8 +16,7 @@ public class PlayerAttack : MonoBehaviour
     public bool Attack { get; set; }
     public bool AttackDown { get; set; }
 
-    private float _attackDirection = 0;
-    private float _attackDuration = 0.75f;
+    private float _attackDirection;
     private float _attackTime;
 
     void Awake()
@@ -39,22 +40,22 @@ public class PlayerAttack : MonoBehaviour
     {
         Vector2 spritePosition = transform.position;
 
-        if (!Attack && !AttackDown && Input.GetKeyDown(KeyCode.LeftArrow)) 
+        if (!Attack && !AttackDown && Input.GetKeyDown(PlayerData.AttackLeftKey)) 
         {
             _attackDirection = -1.0f;
-            _attackTime = _attackDuration;
+            _attackTime = PlayerData.AttackDuration;
             Attack = true;            
         }
-        if (!Attack && !AttackDown && Input.GetKeyDown(KeyCode.RightArrow))
+        if (!Attack && !AttackDown && Input.GetKeyDown(PlayerData.AttackRightKey))
         {
             _attackDirection = 1.0f;
-            _attackTime = _attackDuration;
+            _attackTime = PlayerData.AttackDuration;
             Attack = true;
         }
 
-        if (!Attack && !AttackDown && !_playerMovement.Grounded && Input.GetKeyDown(KeyCode.DownArrow))
+        if (!Attack && !AttackDown && !_playerMovement.Grounded && Input.GetKeyDown(PlayerData.AttackDownKey))
         {
-            _attackTime = _attackDuration;
+            _attackTime = PlayerData.AttackDuration;
             AttackDown = true;   
         }
 

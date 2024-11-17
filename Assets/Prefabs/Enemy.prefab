@@ -518,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76d6f722f8cdd2479bd08085b74d0fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyData: {fileID: 11400000, guid: 3d122a2e45bbe7f4aaa0dfd6c3c43028, type: 2}
   target: {fileID: 0}
 --- !u!114 &8859829723403528715
 MonoBehaviour:
@@ -531,4 +532,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2663d7f10a188664ebb124f21dcb2476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyData: {fileID: 11400000, guid: 3d122a2e45bbe7f4aaa0dfd6c3c43028, type: 2}
   lifeBarImage: {fileID: 4773090143578045986}
