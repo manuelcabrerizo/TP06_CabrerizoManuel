@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject settingPanel;
     [SerializeField] private GameObject guidePanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject statsPanel;
 
     private void Awake()
     {
@@ -60,6 +61,14 @@ public class UIManager : MonoBehaviour
         if (creditsPanel)
         {
             creditsPanel.SetActive(value);
+        }
+    }
+
+    public void SetStatsPanelActive(bool value)
+    {
+        if (statsPanel)
+        {
+            statsPanel.SetActive(value);
         }
     }
 

@@ -10,7 +10,7 @@ public class GearOnHit : MonoBehaviour
     {
         if (Utils.CheckCollisionLayer(collision.gameObject, layer))
         {
-            // TODO: increment player gearCount
+            PlayerController.Instance.GearCount++;
             AudioManager.Instance.PlayClip(SfxClipsData.GrabClip, AudioSourceType.SFX);
             Destroy(parent);
         }

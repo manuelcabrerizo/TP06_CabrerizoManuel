@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image lifeBarImage;
 
     private Rigidbody2D _rigidbody2D;
+    private SpriteRenderer _spriteRenderer;
     public int Life { get; set; }
+    public int GearCount { get; set; }
     public int AttackPower { get; set; }
 
     bool _isGod;
@@ -27,25 +30,51 @@ public class PlayerController : MonoBehaviour
         }
 
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         Life = PlayerData.MaxLife;
         AttackPower = PlayerData.BaseAttackPower;
+        GearCount = 0;
         _isGod = false;
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();    
     }
 
     public void IncreaseLife(int increment)
     {
         Life = Math.Min(Life + increment, PlayerData.MaxLife);
+        lifeBarImage.fillAmount = (float)Life / (float)PlayerData.MaxLife;
     }
 
     public void IncreaseAttackPower(float duration)
-    { 
-        // TODO: start a corutine that imcrement the attack power for X seconds
+    {
+        StartCoroutine(IncreaseAttackPowerCorutine(duration));
+    }
+
+    private IEnumerator IncreaseAttackPowerCorutine(float duration)
+    {
+        AttackPower = PlayerData.IncreaseAttackPower;
+        _spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(duration);
+        _spriteRenderer.color = Color.white;
+        AttackPower = PlayerData.BaseAttackPower;
     }
 
     public void GodMode(float duration)
     {
-        // TODO: start a corutine that make the player a god for X seconds
+        StartCoroutine(GodModeCorutine(duration));
+    }
+
+    private IEnumerator GodModeCorutine(float duration)
+    {
+        _isGod = true;
+        _spriteRenderer.color = Color.yellow;
+        yield return new WaitForSeconds(duration);
+        _spriteRenderer.color = Color.white;
+        _isGod = false;
     }
 
     public void ApplyDamage(int damage, Vector2 origin)

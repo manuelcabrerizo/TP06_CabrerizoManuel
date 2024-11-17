@@ -25,6 +25,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         UIManager.Instance.SetPausePanelActive(false);
+        UIManager.Instance.SetStatsPanelActive(true);
     }
 
     private void OnSettingsButtonClick()
