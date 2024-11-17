@@ -1,6 +1,7 @@
 using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private SfxClipsData SfxClipsData;
 
     private Rigidbody2D _rigidbody2D;
     private SpriteRenderer _spriteRenderer;
@@ -59,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Grounded && Input.GetKeyDown(KeyCode.Space))
         {
+            AudioManager.Instance.PlayClip(SfxClipsData.JumpClip, AudioSourceType.SFX);
             _rigidbody2D.AddForce(Vector2.up * 50.0f, ForceMode2D.Impulse);
         }
 

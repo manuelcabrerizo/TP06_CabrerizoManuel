@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84608b8e8d8ac3247b144a2cfa58552d, type: 3}
+  m_Name: SfxClipsData
+  m_EditorClassIdentifier: 
+  JumpClip: {fileID: 8300000, guid: 57959c6bbb5ed014198cc359fd216574, type: 3}
+  LandClip: {fileID: 0}
+  AttackClip: {fileID: 0}
+  HitClip: {fileID: 0}
+  GrabClip: {fileID: 8300000, guid: 9e2331f85486bd2438f2bb81f8ddf669, type: 3}
