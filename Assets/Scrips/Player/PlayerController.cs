@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerData PlayerData;
     [SerializeField] private Image lifeBarImage;
+    [SerializeField] private Image damagePowerUpImage;
+    [SerializeField] private Image godPowerUpImage;
 
     private Rigidbody2D _rigidbody2D;
-    private SpriteRenderer _spriteRenderer;
     public int Life { get; set; }
     public int GearCount { get; set; }
     public int AttackPower { get; set; }
@@ -30,12 +31,13 @@ public class PlayerController : MonoBehaviour
         }
 
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         Life = PlayerData.MaxLife;
         AttackPower = PlayerData.BaseAttackPower;
         GearCount = 0;
         _isGod = false;
+        damagePowerUpImage.enabled = false;
+        godPowerUpImage.enabled = false;
     }
 
     private void OnDestroy()
@@ -57,9 +59,9 @@ public class PlayerController : MonoBehaviour
     private IEnumerator IncreaseAttackPowerCorutine(float duration)
     {
         AttackPower = PlayerData.IncreaseAttackPower;
-        _spriteRenderer.color = Color.red;
+        damagePowerUpImage.enabled = true;
         yield return new WaitForSeconds(duration);
-        _spriteRenderer.color = Color.white;
+        damagePowerUpImage.enabled = false;
         AttackPower = PlayerData.BaseAttackPower;
     }
 
@@ -71,9 +73,9 @@ public class PlayerController : MonoBehaviour
     private IEnumerator GodModeCorutine(float duration)
     {
         _isGod = true;
-        _spriteRenderer.color = Color.yellow;
+        godPowerUpImage.enabled = true;
         yield return new WaitForSeconds(duration);
-        _spriteRenderer.color = Color.white;
+        godPowerUpImage.enabled = false;
         _isGod = false;
     }
 

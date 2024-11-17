@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject guidePanel;
     [SerializeField] private GameObject creditsPanel;
     [SerializeField] private GameObject statsPanel;
+    [SerializeField] private GameObject powerUpsPanel;
+    [SerializeField] private GameObject shipPartsPanel;
 
     private void Awake()
     {
@@ -64,11 +66,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void SetStatsPanelActive(bool value)
+    public void SetGameUIActive(bool value)
     {
         if (statsPanel)
         {
             statsPanel.SetActive(value);
+        }
+        if (powerUpsPanel)
+        {
+            powerUpsPanel.SetActive(value);
+        }
+        if (shipPartsPanel)
+        {
+            shipPartsPanel.SetActive(value);
         }
     }
 

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             if (Time.timeScale > 0)
             {
                 Time.timeScale = 0.0f;
-                UIManager.Instance.SetStatsPanelActive(false);
+                UIManager.Instance.SetGameUIActive(false);
                 UIManager.Instance.SetPausePanelActive(true);
             }
             else
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1.0f;
                 UIManager.Instance.SetPausePanelActive(false);
                 UIManager.Instance.SetSettingsPanelActive(false);
-                UIManager.Instance.SetStatsPanelActive(true);
+                UIManager.Instance.SetGameUIActive(true);
             }
         }
 
