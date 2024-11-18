@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(PlayerData.JumpKey))
         {
-            bool hasOtherJump = PlayerController.Instance.HasTripleJump ? _jumpCount < 2 : _jumpCount < 1;
+            bool hasOtherJump = PlayerController.Instance.HasTripleJump ? _jumpCount < 3 : _jumpCount < 2;
             if (Grounded || hasOtherJump)
             {
                 AudioManager.Instance.PlayClip(SfxClipsData.JumpClip, AudioSourceType.SFX);
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hitGround0 = Physics2D.Raycast(origin0, Vector2.down, (scaleY * 0.55f), _tilemapSolidLayer);
         RaycastHit2D hitGround1 = Physics2D.Raycast(origin1, Vector2.down, (scaleY * 0.55f), _tilemapSolidLayer);
         Grounded = (hitGround0.collider != null || hitGround1.collider != null);
-        if (Grounded)
+        if (Grounded && !_lastGrounded)
         {
             _jumpCount = 0;
         }
