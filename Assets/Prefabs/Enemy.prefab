@@ -5368,3 +5368,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 3d122a2e45bbe7f4aaa0dfd6c3c43028, type: 2}
   lifeBarImage: {fileID: 4773090143578045986}
+  backLifeImage: {fileID: 8194632886254004588}
