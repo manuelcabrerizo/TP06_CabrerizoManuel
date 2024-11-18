@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             if (Grounded || hasOtherJump)
             {
                 AudioManager.Instance.PlayClip(SfxClipsData.JumpClip, AudioSourceType.SFX);
+                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0.0f);
                 _rigidbody2D.AddForce(Vector2.up * PlayerData.JumpImpulse, ForceMode2D.Impulse);
                 _jumpCount++;
             }
