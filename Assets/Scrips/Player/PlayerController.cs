@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -148,6 +149,11 @@ public class PlayerController : MonoBehaviour
 
         Life = Math.Max(Life - damage, 0);
         lifeBarImage.fillAmount = (float)Life / (float)PlayerData.MaxLife;
+
+        if (Life == 0)
+        {
+            SceneManager.LoadScene("Gameover");
+        }
     }
 
     public void ApplyImpulse(Vector2 origin)

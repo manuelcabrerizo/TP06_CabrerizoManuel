@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 12355565}
   - component: {fileID: 12355564}
   - component: {fileID: 12355563}
+  - component: {fileID: 12355566}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -244,6 +245,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12355561}
   m_CullTransparentMesh: 1
+--- !u!114 &12355566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12355561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37864d4581f5b948a91b652bf90780c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UiClipsData: {fileID: 11400000, guid: e3e7d5e2ce182c7499b3b85c68c4a7da, type: 2}
 --- !u!1 &12381843
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,26 +900,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 19429798}
     m_Modifications:
-    - target: {fileID: 1128083631253386505, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 1128083631253386505, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1128083631253386505, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 1229946195967581277, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 1229946195967581277, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1851086855382885270, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -986,73 +980,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3436205305730832087, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 3436205305730832087, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3436205305730832087, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856456940958743812, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 3856456940958743812, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409230419434690538, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409230419434690538, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4409230419434690538, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.447
-      objectReference: {fileID: 0}
     - target: {fileID: 5228554120592156829, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 5228554120592156829, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228558988309915073, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 6228558988309915073, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7689511916707079051, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 7689511916707079051, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9145511251279168963, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.447
-      objectReference: {fileID: 0}
-    - target: {fileID: 9145511251279168963, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9145511251279168963, guid: 6b6b1c70bf2f97f43a13ad1f082c659f, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.447
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6418,6 +6348,7 @@ GameObject:
   - component: {fileID: 1105575153}
   - component: {fileID: 1105575152}
   - component: {fileID: 1105575151}
+  - component: {fileID: 1105575154}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -6527,6 +6458,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105575149}
   m_CullTransparentMesh: 1
+--- !u!114 &1105575154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105575149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37864d4581f5b948a91b652bf90780c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UiClipsData: {fileID: 11400000, guid: e3e7d5e2ce182c7499b3b85c68c4a7da, type: 2}
 --- !u!1 &1111659909
 GameObject:
   m_ObjectHideFlags: 0
@@ -11364,6 +11308,7 @@ GameObject:
   - component: {fileID: 1767103679}
   - component: {fileID: 1767103678}
   - component: {fileID: 1767103677}
+  - component: {fileID: 1767103680}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -11473,6 +11418,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767103675}
   m_CullTransparentMesh: 1
+--- !u!114 &1767103680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767103675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37864d4581f5b948a91b652bf90780c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UiClipsData: {fileID: 11400000, guid: e3e7d5e2ce182c7499b3b85c68c4a7da, type: 2}
 --- !u!4 &1771599392 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2010778619668571066, guid: e6bd56db770ac3146a32e34523413b07, type: 3}

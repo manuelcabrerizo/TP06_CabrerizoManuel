@@ -234,7 +234,7 @@ RectTransform:
   m_Father: {fileID: 835256860854415132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Master Volume
+  m_text: 'Music Volume
 
 '
   m_isRightToLeft: 0
@@ -761,6 +761,7 @@ GameObject:
   - component: {fileID: 5175484666585336316}
   - component: {fileID: 7237128471065946327}
   - component: {fileID: 4635247307104884225}
+  - component: {fileID: 2050948747154250389}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -870,6 +871,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2050948747154250389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2982150015495896650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e37864d4581f5b948a91b652bf90780c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UiClipsData: {fileID: 11400000, guid: e3e7d5e2ce182c7499b3b85c68c4a7da, type: 2}
 --- !u!1 &3136697834416004923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1298,7 @@ RectTransform:
   m_Father: {fileID: 7655462998507396739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1380,7 +1394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1851086855382885270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1464,6 +1478,7 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 1877160469022752266}
   sfxVolumeSlider: {fileID: 3663503216535629362}
   uiSoundVolumeSlider: {fileID: 4747598546788357820}
+  audioMixer: {fileID: 24100000, guid: e54a25d69e0a30e4bb446ece29c6107c, type: 2}
 --- !u!1 &5264349008008056446
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,8 +1748,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3094237312866868685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.447, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 1.2855225, y: 0}
   m_SizeDelta: {x: 54.2666, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1808,8 +1823,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7217059039994018137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.447, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 1.2855225, y: 0}
   m_SizeDelta: {x: 54.2666, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2110,7 +2125,7 @@ RectTransform:
   m_Father: {fileID: 3176406457664057206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2221,7 +2236,7 @@ RectTransform:
   m_Father: {fileID: 2786796673731666370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2331,8 +2346,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6534370521019914375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.447, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 1.2855225, y: 0}
   m_SizeDelta: {x: 54.2666, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2406,8 +2421,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3078252184434353500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.447, y: 0}
+  m_AnchorMax: {x: 0.447, y: 1}
   m_AnchoredPosition: {x: 1.2855225, y: 0}
   m_SizeDelta: {x: 54.2666, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

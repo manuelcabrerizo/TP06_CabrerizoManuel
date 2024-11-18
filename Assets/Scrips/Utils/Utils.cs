@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public static class Utils
 {

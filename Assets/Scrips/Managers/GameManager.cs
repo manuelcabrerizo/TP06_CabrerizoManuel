@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeText;
 
     private float _time;
+    public float GameTime => _time;
     public bool Pause { get; set; }
     public float LastTimeScale { get; set; }
 

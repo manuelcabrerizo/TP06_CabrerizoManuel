@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider sfxVolumeSlider;
     [SerializeField] private Slider uiSoundVolumeSlider;
+    [SerializeField] private AudioMixer audioMixer;
+
 
     private void Awake()
     {
@@ -18,6 +21,23 @@ public class SettingsMenu : MonoBehaviour
         musicVolumeSlider.onValueChanged.AddListener(OnMusicVolumeSliderValueChange);
         sfxVolumeSlider.onValueChanged.AddListener(OnSfxVolumeSliderValueChange);
         uiSoundVolumeSlider.onValueChanged.AddListener(OnUiVolumeSliderValueChange);
+    }
+
+    private void Start()
+    {
+        float volume = 0;
+        // Set Master Volume Slider
+        audioMixer.GetFloat("MasterVolume", out volume);
+        masterVolumeSlider.value = Utils.DecibelToLinear(volume);
+        // Set Music Volume Slider
+        audioMixer.GetFloat("MusicVolume", out volume);
+        musicVolumeSlider.value = Utils.DecibelToLinear(volume);
+        // Set Sfx Volume Slider
+        audioMixer.GetFloat("SfxVolume", out volume);
+        sfxVolumeSlider.value = Utils.DecibelToLinear(volume);
+        // Set UI Volume Slider
+        audioMixer.GetFloat("UiVolume", out volume);
+        uiSoundVolumeSlider.value = Utils.DecibelToLinear(volume);
     }
 
     // Update is called once per frame

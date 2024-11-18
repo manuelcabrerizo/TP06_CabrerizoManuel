@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShopMenu : MonoBehaviour
@@ -120,8 +121,23 @@ public class ShopMenu : MonoBehaviour
     private void OnTakeOffButtonClick()
     {
         if (PlayerController.Instance.CanTakeOff())
-        { 
-            // TODO: win the game
+        {
+            PlayerPrefs.SetFloat("CurrentGameTime", GameManager.Instance.GameTime);
+
+            if (!PlayerPrefs.HasKey("BestGameTime"))
+            {
+                PlayerPrefs.SetFloat("BestGameTime", GameManager.Instance.GameTime);
+            }
+            else
+            {
+                float bestGameTime = PlayerPrefs.GetFloat("BestGameTime");
+                if (GameManager.Instance.GameTime < bestGameTime)
+                {
+                    PlayerPrefs.SetFloat("BestGameTime", GameManager.Instance.GameTime);
+                }
+            }
+
+            SceneManager.LoadScene("Win");
         }
     }
 

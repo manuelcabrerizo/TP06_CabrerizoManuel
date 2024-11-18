@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dd805908842cf044a96bd659689979c, type: 3}
+  m_Name: UiClipsData
+  m_EditorClassIdentifier: 
+  HoverClip: {fileID: 8300000, guid: 657be61f3f429b74cbc77bbf24b30712, type: 3}
+  ClickClip: {fileID: 8300000, guid: eb19ea0e7ee0a3346abdbcc3c26c9075, type: 3}

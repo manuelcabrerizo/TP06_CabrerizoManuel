@@ -4,6 +4,8 @@ public class EnemyOnHit : MonoBehaviour
 {
     [SerializeField] private LayerMask layer;
     [SerializeField] private ParticleSystem particleSys;
+    [SerializeField] private SfxClipsData SfxClipsData;
+
 
     private EnemyController _enemyController;
 
@@ -17,6 +19,7 @@ public class EnemyOnHit : MonoBehaviour
         if (Utils.CheckCollisionLayer(collision.gameObject, layer))
         {
             particleSys.Play();
+            AudioManager.Instance.PlayClip(SfxClipsData.HitClip, AudioSourceType.SFX);
             _enemyController.ApplyDamage(PlayerController.Instance.AttackPower, collision.gameObject.transform.position);
         }
     }

@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
                     AudioSource sfxAudioSource = _sfxPool.Get();
                     sfxAudioSource.clip = clip;
                     sfxAudioSource.Play();
-                    StartCoroutine(ReleaseAudioSourceIfFinish(sfxAudioSource, type));
+                    StartCoroutine(ReleaseSfxAudioSourceIfFinish(sfxAudioSource));
                 }
                 break;
             case AudioSourceType.UI:
@@ -87,20 +87,22 @@ public class AudioManager : MonoBehaviour
                     AudioSource uiAudioSource = _uiPool.Get();
                     uiAudioSource.clip = clip;
                     uiAudioSource.Play();
-                    StartCoroutine(ReleaseAudioSourceIfFinish(uiAudioSource, type));
+                    StartCoroutine(ReleaseUiAudioSourceIfFinish(uiAudioSource));
                 }
                 break;
         }
     }
 
-    private IEnumerator ReleaseAudioSourceIfFinish(AudioSource audioSource, AudioSourceType type)
+    private IEnumerator ReleaseSfxAudioSourceIfFinish(AudioSource audioSource)
     {
         yield return new WaitForSeconds(audioSource.clip.length);
-        switch (type)
-        {
-            case AudioSourceType.SFX: _sfxPool.Release(audioSource); break;
-            case AudioSourceType.UI: _uiPool.Release(audioSource); break;
-        }
+        _sfxPool.Release(audioSource);
+    }
+
+    private IEnumerator ReleaseUiAudioSourceIfFinish(AudioSource audioSource)
+    {
+        yield return new WaitForSecondsRealtime(audioSource.clip.length);
+        _uiPool.Release(audioSource);
     }
 
 
@@ -112,8 +114,8 @@ public class AudioManager : MonoBehaviour
 
     private AudioSource CreateUiAudioSource()
     {
-        AudioSource sfxAudioSource = Instantiate(uiAudioSourcePrefab);
-        return sfxAudioSource;
+        AudioSource uiAudioSource = Instantiate(uiAudioSourcePrefab);
+        return uiAudioSource;
     }
 
     private void OnReleaseToPool(AudioSource pooledObject)
@@ -151,5 +153,4 @@ public class AudioManager : MonoBehaviour
     {
         audioMixer.SetFloat("UiVolume", Utils.LinearToDecibel(volume));
     }
-
 }

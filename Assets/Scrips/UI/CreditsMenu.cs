@@ -6,13 +6,13 @@ public class CreditsMenu : MonoBehaviour
 {
     [SerializeField] private Button backButton;
 
-    void Awake()
+    private void Awake()
     {
         backButton.onClick.AddListener(OnBackButtonClicked);
     }
 
     // Update is called once per frame
-    void OnDestroy()
+    private void OnDestroy()
     {
         backButton.onClick.RemoveAllListeners();
     }
