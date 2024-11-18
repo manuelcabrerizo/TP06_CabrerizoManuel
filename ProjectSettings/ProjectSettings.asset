@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: ImageCampus
   productName: TP06_CabrerizoManuel
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -45,7 +45,7 @@ PlayerSettings:
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
   defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenHeightWeb: 540
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 1
   unsupportedMSAAFallback: 0
@@ -626,8 +626,8 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: TP06_CabrerizoManuel
-  metroPackageVersion: 
+  metroPackageName: TP06CabrerizoManuel
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -635,7 +635,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: TP06_CabrerizoManuel
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: TP06_CabrerizoManuel
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
