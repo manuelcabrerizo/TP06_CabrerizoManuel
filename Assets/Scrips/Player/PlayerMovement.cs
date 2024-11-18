@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public bool Moving { get; set; }
     private bool _lastMoving;
 
+    private int _jumpCount;
+
     
 
     void Awake()
@@ -33,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
 
         Moving = false;
         _lastMoving = false;
+
+        _jumpCount = 0;
     }
 
 
@@ -58,11 +62,18 @@ public class PlayerMovement : MonoBehaviour
             }
             Moving = true;
         }
-        if (Grounded && Input.GetKeyDown(PlayerData.JumpKey))
+
+        if (Input.GetKeyDown(PlayerData.JumpKey))
         {
-            AudioManager.Instance.PlayClip(SfxClipsData.JumpClip, AudioSourceType.SFX);
-            _rigidbody2D.AddForce(Vector2.up * PlayerData.JumpImpulse, ForceMode2D.Impulse);
+            bool hasOtherJump = PlayerController.Instance.HasTripleJump ? _jumpCount < 2 : _jumpCount < 1;
+            if (Grounded || hasOtherJump)
+            {
+                AudioManager.Instance.PlayClip(SfxClipsData.JumpClip, AudioSourceType.SFX);
+                _rigidbody2D.AddForce(Vector2.up * PlayerData.JumpImpulse, ForceMode2D.Impulse);
+                _jumpCount++;
+            }
         }
+        
 
         ProcessGrounded();
         UpdateAnimator();
@@ -83,6 +94,10 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hitGround0 = Physics2D.Raycast(origin0, Vector2.down, (scaleY * 0.55f), _tilemapSolidLayer);
         RaycastHit2D hitGround1 = Physics2D.Raycast(origin1, Vector2.down, (scaleY * 0.55f), _tilemapSolidLayer);
         Grounded = (hitGround0.collider != null || hitGround1.collider != null);
+        if (Grounded)
+        {
+            _jumpCount = 0;
+        }
     }
 
     private void UpdateAnimator()

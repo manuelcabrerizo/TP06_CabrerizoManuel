@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image lifeBarImage;
     [SerializeField] private Image damagePowerUpImage;
     [SerializeField] private Image godPowerUpImage;
+    [SerializeField] private Image dobleJumpPowerUpImage;
     [SerializeField] private Image eButtonImage;
 
     private Rigidbody2D _rigidbody2D;
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
     public int AttackPower { get; set; }
     public bool IsInShop { get; set; }
     public int ShipPartsBuyed { get; set; }
+
+    private bool _hasTripleJump;
+    public bool HasTripleJump => _hasTripleJump;
 
     bool _isGod;
 
@@ -42,8 +46,10 @@ public class PlayerController : MonoBehaviour
         ShipPartsBuyed = 0;
 
         _isGod = false;
+        _hasTripleJump = false;
         damagePowerUpImage.enabled = false;
         godPowerUpImage.enabled = false;
+        dobleJumpPowerUpImage.enabled = false;
 
     }
 
@@ -79,6 +85,20 @@ public class PlayerController : MonoBehaviour
     public bool Lose()
     {
         return Life <= 0;
+    }
+
+    public void TripleJump(float duration)
+    {
+        StartCoroutine(TripleJumpCorutine(duration));
+    }
+
+    private IEnumerator TripleJumpCorutine(float duration)
+    {
+        _hasTripleJump = true;
+        dobleJumpPowerUpImage.enabled = true;
+        yield return new WaitForSeconds(duration);
+        dobleJumpPowerUpImage.enabled = false;
+        _hasTripleJump = false;
     }
 
     public void IncreaseLife(int increment)
