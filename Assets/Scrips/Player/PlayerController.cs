@@ -9,11 +9,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Image lifeBarImage;
     [SerializeField] private Image damagePowerUpImage;
     [SerializeField] private Image godPowerUpImage;
+    [SerializeField] private Image eButtonImage;
 
     private Rigidbody2D _rigidbody2D;
     public int Life { get; set; }
     public int GearCount { get; set; }
     public int AttackPower { get; set; }
+
+    public bool IsInShop { get; set; }
 
     bool _isGod;
 
@@ -35,14 +38,36 @@ public class PlayerController : MonoBehaviour
         Life = PlayerData.MaxLife;
         AttackPower = PlayerData.BaseAttackPower;
         GearCount = 0;
+        IsInShop = false;
+
         _isGod = false;
         damagePowerUpImage.enabled = false;
         godPowerUpImage.enabled = false;
+
     }
 
     private void OnDestroy()
     {
         StopAllCoroutines();    
+    }
+
+    private void Update()
+    {
+        if (!IsInShop && eButtonImage.enabled && Input.GetKeyDown(KeyCode.E))
+        {
+            UIManager.Instance.SetShopPanelActive(true);
+            IsInShop = true;
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            if (IsInShop && Input.GetKeyDown(KeyCode.E))
+            {
+                IsInShop = false;
+                Time.timeScale = 1.0f;
+                UIManager.Instance.SetShopPanelActive(false);
+            }  
+        }
     }
 
     public void IncreaseLife(int increment)
@@ -99,5 +124,15 @@ public class PlayerController : MonoBehaviour
         Vector2 impulse = (_rigidbody2D.position - origin).normalized * 20.0f;
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.AddForce(impulse, ForceMode2D.Impulse);
+    }
+
+    public void ShowEButton()
+    {
+        eButtonImage.enabled = true;
+    }
+
+    public void HideEButton()
+    {
+        eButtonImage.enabled = false;
     }
 }

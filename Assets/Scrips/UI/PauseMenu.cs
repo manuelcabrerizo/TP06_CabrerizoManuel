@@ -23,7 +23,8 @@ public class PauseMenu : MonoBehaviour
     }
     private void OnResumeButtonClick()
     {
-        Time.timeScale = 1.0f;
+        GameManager.Instance.Pause = false;
+        Time.timeScale = GameManager.Instance.LastTimeScale;
         UIManager.Instance.SetPausePanelActive(false);
         UIManager.Instance.SetGameUIActive(true);
     }

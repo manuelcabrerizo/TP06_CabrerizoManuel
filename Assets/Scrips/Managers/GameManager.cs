@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     [SerializeField] private TextMeshProUGUI gearCountText;
     [SerializeField] private TextMeshProUGUI timeText;
 
     private float _time;
-    private bool _pause;
+    public bool Pause { get; set; }
+    public float LastTimeScale { get; set; }
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+
         _time = 0;
+        Pause = false;
+        LastTimeScale = Time.timeScale;
     }
 
     // Update is called once per frame
@@ -21,27 +37,25 @@ public class GameManager : MonoBehaviour
         _time += Time.deltaTime;
         TimeSpan time = TimeSpan.FromSeconds(Math.Floor(_time));
         
-
         timeText.text = time.ToString();
         gearCountText.text = PlayerController.Instance.GearCount.ToString();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Time.timeScale > 0)
+            if (!Pause)
             {
+                Pause = true;
+                LastTimeScale = Time.timeScale;
                 Time.timeScale = 0.0f;
-                UIManager.Instance.SetGameUIActive(false);
                 UIManager.Instance.SetPausePanelActive(true);
             }
             else
             {
-                Time.timeScale = 1.0f;
+                Pause = false;
+                Time.timeScale = LastTimeScale;
                 UIManager.Instance.SetPausePanelActive(false);
                 UIManager.Instance.SetSettingsPanelActive(false);
-                UIManager.Instance.SetGameUIActive(true);
             }
         }
-
-        
     }
 }
