@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: SfxClipsData
   m_EditorClassIdentifier: 
   JumpClip: {fileID: 8300000, guid: 57959c6bbb5ed014198cc359fd216574, type: 3}
-  LandClip: {fileID: 0}
-  AttackClip: {fileID: 0}
-  HitClip: {fileID: 0}
+  LandClip: {fileID: 8300000, guid: b4d4573e42702fa408ab39f232c1d572, type: 3}
+  AttackClip: {fileID: 8300000, guid: bcde29c3bb98f104b944dc176ccfe534, type: 3}
+  HitClip: {fileID: 8300000, guid: 703733a617058124f9dd0eeb8254f741, type: 3}
   GrabClip: {fileID: 8300000, guid: 9e2331f85486bd2438f2bb81f8ddf669, type: 3}
+  ShootHitClip: {fileID: 8300000, guid: 776a52aafac69fd43af153b3336c7130, type: 3}
+  ShootFireClip: {fileID: 8300000, guid: a2e5d8c6a4509134fa23ad3ea309d45f, type: 3}

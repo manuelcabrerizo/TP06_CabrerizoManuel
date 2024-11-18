@@ -10,4 +10,6 @@ public class SfxClipsData : ScriptableObject
     public AudioClip AttackClip;
     public AudioClip HitClip;
     public AudioClip GrabClip;
+    public AudioClip ShootHitClip;
+    public AudioClip ShootFireClip;
 }

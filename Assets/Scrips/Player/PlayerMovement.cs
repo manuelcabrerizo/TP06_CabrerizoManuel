@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         Grounded = (hitGround0.collider != null || hitGround1.collider != null);
         if (Grounded && !_lastGrounded)
         {
+            AudioManager.Instance.PlayClip(SfxClipsData.LandClip, AudioSourceType.SFX);
             _jumpCount = 0;
         }
     }

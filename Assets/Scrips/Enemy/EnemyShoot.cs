@@ -4,6 +4,7 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private EnemyData EnemyData;
     [SerializeField] private GameObject target;
+    [SerializeField] private SfxClipsData SfxClipsData;
 
     private Rigidbody2D _targetRigidBody2D;
     private float _time;
@@ -31,6 +32,8 @@ public class EnemyShoot : MonoBehaviour
                 bullet.Body.AddForce(shootDir.normalized * EnemyData.ShootSpeed, ForceMode2D.Impulse);
                 bullet.Sprite.enabled = true;
                 bullet.Collider.enabled = true;
+
+                AudioManager.Instance.PlayClip(SfxClipsData.ShootFireClip, AudioSourceType.SFX);
 
                 _time = EnemyData.TimeToShoot;
             }

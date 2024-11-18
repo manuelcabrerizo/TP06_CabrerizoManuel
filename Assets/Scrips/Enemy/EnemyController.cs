@@ -11,11 +11,19 @@ public class EnemyController : MonoBehaviour
 
     public int Life { get; set; }
 
-    void Awake()
+    private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _particleSys = GetComponentInChildren<ParticleSystem>();
         Life = EnemyData.MaxLife;
+    }
+
+    private void Update()
+    {
+        if (Life == 0 && _particleSys.isPlaying == false)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void ApplyDamage(int damage, Vector2 origin)
@@ -26,10 +34,5 @@ public class EnemyController : MonoBehaviour
         Vector2 impulse = (_rigidbody2D.position - origin).normalized * 20.0f;
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.AddForce(impulse, ForceMode2D.Impulse);
-
-        if (Life == 0 && _particleSys.isPlaying == false)
-        {
-            Destroy(gameObject);
-        }
     }
 }

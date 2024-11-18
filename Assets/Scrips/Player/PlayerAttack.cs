@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private PlayerData PlayerData;
+    [SerializeField] private SfxClipsData SfxClipsData;
+
 
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -44,19 +46,23 @@ public class PlayerAttack : MonoBehaviour
         {
             _attackDirection = -1.0f;
             _attackTime = PlayerData.AttackDuration;
-            Attack = true;            
+            Attack = true;
+            AudioManager.Instance.PlayClip(SfxClipsData.AttackClip, AudioSourceType.SFX);
         }
         if (!Attack && !AttackDown && Input.GetKeyDown(PlayerData.AttackRightKey))
         {
             _attackDirection = 1.0f;
             _attackTime = PlayerData.AttackDuration;
             Attack = true;
+            AudioManager.Instance.PlayClip(SfxClipsData.AttackClip, AudioSourceType.SFX);
+
         }
 
         if (!Attack && !AttackDown && !_playerMovement.Grounded && Input.GetKeyDown(PlayerData.AttackDownKey))
         {
             _attackTime = PlayerData.AttackDuration;
-            AttackDown = true;   
+            AttackDown = true;
+            AudioManager.Instance.PlayClip(SfxClipsData.AttackClip, AudioSourceType.SFX);
         }
 
         if (_attackTime > 0.0f)
