@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd772b9b664ed124ca4bf77a21af8f88, type: 3}
   m_Name: PricesData
   m_EditorClassIdentifier: 
-  ShipPart1: 1
-  ShipPart2: 2
-  ShipPart3: 2
-  ShipPart4: 2
+  ShipPart1: 10
+  ShipPart2: 20
+  ShipPart3: 30
+  ShipPart4: 60
