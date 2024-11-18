@@ -4,11 +4,14 @@ public class PlayerOnHit : MonoBehaviour
 {
     [SerializeField] private LayerMask layer;
 
+    [SerializeField] private ParticleSystem particleSys;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Utils.CheckCollisionLayer(collision.gameObject, layer))
         {
             PlayerController.Instance.ApplyDamage(1, collision.gameObject.transform.position);
+            particleSys.Play();
         }
     }
 
@@ -17,6 +20,7 @@ public class PlayerOnHit : MonoBehaviour
         if (Utils.CheckCollisionLayer(collision.gameObject, layer))
         {
             PlayerController.Instance.ApplyDamage(1, collision.gameObject.transform.position);
+            particleSys.Play();
         }
     }
 }

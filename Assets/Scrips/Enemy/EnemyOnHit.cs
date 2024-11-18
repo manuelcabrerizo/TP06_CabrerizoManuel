@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyOnHit : MonoBehaviour
 {
     [SerializeField] private LayerMask layer;
+    [SerializeField] private ParticleSystem particleSys;
 
     private EnemyController _enemyController;
 
@@ -16,6 +17,7 @@ public class EnemyOnHit : MonoBehaviour
         if (Utils.CheckCollisionLayer(collision.gameObject, layer))
         {
             _enemyController.ApplyDamage(PlayerController.Instance.AttackPower, collision.gameObject.transform.position);
+            particleSys.Play();
         }
     }
 }

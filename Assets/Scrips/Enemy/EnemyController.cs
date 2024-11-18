@@ -7,12 +7,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyData EnemyData;
     [SerializeField] private Image lifeBarImage;
     private Rigidbody2D _rigidbody2D;
+    private ParticleSystem _particleSys;
 
     public int Life { get; set; }
 
     void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _particleSys = GetComponentInChildren<ParticleSystem>();
         Life = EnemyData.MaxLife;
     }
 
@@ -25,7 +27,7 @@ public class EnemyController : MonoBehaviour
         _rigidbody2D.velocity = Vector2.zero;
         _rigidbody2D.AddForce(impulse, ForceMode2D.Impulse);
 
-        if (Life == 0)
+        if (Life == 0 && _particleSys.isPlaying == false)
         {
             Destroy(gameObject);
         }
