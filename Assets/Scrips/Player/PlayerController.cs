@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
     public int Life { get; set; }
     public int GearCount { get; set; }
     public int AttackPower { get; set; }
-
     public bool IsInShop { get; set; }
+    public int ShipPartsBuyed { get; set; }
 
     bool _isGod;
 
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         AttackPower = PlayerData.BaseAttackPower;
         GearCount = 0;
         IsInShop = false;
+        ShipPartsBuyed = 0;
 
         _isGod = false;
         damagePowerUpImage.enabled = false;
@@ -68,6 +69,16 @@ public class PlayerController : MonoBehaviour
                 UIManager.Instance.SetShopPanelActive(false);
             }  
         }
+    }
+
+    public bool CanTakeOff()
+    {
+        return ShipPartsBuyed == 4;
+    }
+
+    public bool Lose()
+    {
+        return Life <= 0;
     }
 
     public void IncreaseLife(int increment)
