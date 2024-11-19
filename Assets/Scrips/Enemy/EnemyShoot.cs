@@ -7,12 +7,14 @@ public class EnemyShoot : MonoBehaviour
     [SerializeField] private SfxClipsData SfxClipsData;
 
     private Rigidbody2D _targetRigidBody2D;
+    private EnemyController _enemyController;
     private float _time;
 
     private void Awake()
     {
         _time = EnemyData.TimeToShoot;
         _targetRigidBody2D = target.GetComponent<Rigidbody2D>();
+        _enemyController = GetComponent<EnemyController>();
     }
     private void Update()
     {
@@ -21,7 +23,7 @@ public class EnemyShoot : MonoBehaviour
         if (distSq < (EnemyData.ShootRadio * EnemyData.ShootRadio))
         {
             _time -= Time.deltaTime;
-            if (_time < 0.0)
+            if (_time < 0.0 && _enemyController.Life > 0)
             {
                 SpawnedBullet bullet = BullletSpawner.Instance.SpawnBullet(5.0f);
                 bullet.Obj.transform.position = transform.position;
